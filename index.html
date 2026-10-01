@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive image gallery built with HTML, CSS and JavaScript.">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="nav">
+    <a class="brand" href="#home">Image Gallery</a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="hero-content">
+        <h1>My Image Gallery</h1>
+        <p>Explore moments, captured beautifully.</p>
+        <a class="cta" href="#gallery">View gallery</a>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <h2>Gallery</h2>
+        <p>Pick a category, then select any image to view it full screen.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter images by category">
+        <button class="filter active" type="button" data-filter="All" aria-pressed="true">All</button>
+        <button class="filter" type="button" data-filter="Nature" aria-pressed="false">Nature</button>
+        <button class="filter" type="button" data-filter="Travel" aria-pressed="false">Travel</button>
+        <button class="filter" type="button" data-filter="Animals" aria-pressed="false">Animals</button>
+        <button class="filter" type="button" data-filter="Architecture" aria-pressed="false">Architecture</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <button class="item" type="button" data-category="Nature" data-title="Misty Peaks" aria-label="Open Misty Peaks, Nature">
+          <span class="thumb"><img src="assets/Nature1.webp" alt="Misty Peaks - Nature illustration" width="800" height="1000" loading="lazy" decoding="async"><span class="overlay"><strong>Misty Peaks</strong><small>Nature</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Nature" data-title="Pine Forest" aria-label="Open Pine Forest, Nature">
+          <span class="thumb"><img src="assets/Nature2.jpeg" alt="Pine Forest - Nature illustration" width="800" height="600" loading="lazy" decoding="async"><span class="overlay"><strong>Pine Forest</strong><small>Nature</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Nature" data-title="Golden Ridge" aria-label="Open Golden Ridge, Nature">
+          <span class="thumb"><img src="assets/nature3.jpg" alt="Golden Ridge - Nature illustration" width="800" height="800" loading="lazy" decoding="async"><span class="overlay"><strong>Golden Ridge</strong><small>Nature</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Travel" data-title="Sunset Shore" aria-label="Open Sunset Shore, Travel">
+          <span class="thumb"><img src="assets/travel1.webp" alt="Sunset Shore - Travel illustration" width="800" height="600" loading="lazy" decoding="async"><span class="overlay"><strong>Sunset Shore</strong><small>Travel</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Travel" data-title="City Lights" aria-label="Open City Lights, Travel">
+          <span class="thumb"><img src="assets/travel2.jpg" alt="City Lights - Travel illustration" width="800" height="1100" loading="lazy" decoding="async"><span class="overlay"><strong>City Lights</strong><small>Travel</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Travel" data-title="Sky Voyage" aria-label="Open Sky Voyage, Travel">
+          <span class="thumb"><img src="assets/travel3.png" alt="Sky Voyage - Travel illustration" width="800" height="800" loading="lazy" decoding="async"><span class="overlay"><strong>Sky Voyage</strong><small>Travel</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Animals" data-title="Night Owl" aria-label="Open Night Owl, Animals">
+          <span class="thumb"><img src="assets/animal1.jpg" alt="Night Owl - Animals illustration" width="800" height="1000" loading="lazy" decoding="async"><span class="overlay"><strong>Night Owl</strong><small>Animals</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Animals" data-title="Monarch Garden" aria-label="Open Monarch Garden, Animals">
+          <span class="thumb"><img src="assets/animal2.png" alt="Monarch Garden - Animals illustration" width="800" height="700" loading="lazy" decoding="async"><span class="overlay"><strong>Monarch Garden</strong><small>Animals</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Animals" data-title="Coral Reef" aria-label="Open Coral Reef, Animals">
+          <span class="thumb"><img src="assets/animal3.png" alt="Coral Reef - Animals illustration" width="800" height="600" loading="lazy" decoding="async"><span class="overlay"><strong>Coral Reef</strong><small>Animals</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Architecture" data-title="Glass Towers" aria-label="Open Glass Towers, Architecture">
+          <span class="thumb"><img src="assets/architecture1.webp" alt="Glass Towers - Architecture illustration" width="800" height="1100" loading="lazy" decoding="async"><span class="overlay"><strong>Glass Towers</strong><small>Architecture</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Architecture" data-title="Old Arches" aria-label="Open Old Arches, Architecture">
+          <span class="thumb"><img src="assets/architecture2.jpg" alt="Old Arches - Architecture illustration" width="800" height="700" loading="lazy" decoding="async"><span class="overlay"><strong>Old Arches</strong><small>Architecture</small></span></span>
+        </button>
+        <button class="item" type="button" data-category="Architecture" data-title="Grand Dome" aria-label="Open Grand Dome, Architecture">
+          <span class="thumb"><img src="assets/architecture3.webp" alt="Grand Dome - Architecture illustration" width="800" height="900" loading="lazy" decoding="async"><span class="overlay"><strong>Grand Dome</strong><small>Architecture</small></span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="about">
+        <h2>About Gallery</h2>
+        <p>
+          This is a frontend image gallery project created using HTML, CSS and JavaScript.
+          It features a responsive layout, category filters, lazy-loaded images and a
+          full-screen lightbox with keyboard navigation.
+        </p>
+        <ul class="chips">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>Vanilla JavaScript</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Image Gallery</p>
+    <p>Built with HTML, CSS &amp; JavaScript</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+    <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Close">&times;</button>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Previous image">&lsaquo;</button>
+    <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Next image">&rsaquo;</button>
+
+    <figure class="lb-figure">
+      <img id="lbImg" alt="">
+      <figcaption>
+        <h3 id="lbTitle"></h3>
+        <p><span class="pill" id="lbCategory"></span> <span class="count" id="lbCount"></span></p>
+      </figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
