@@ -299,3 +299,201 @@ button { font: inherit; color: inherit; cursor: pointer; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: 0.01s !important; }
 }
+/* ===== LIGHTBOX + "VIEW IMAGE" BUTTON (append to the END of style.css) ===== */
+
+/* Whole card is clickable (change .gallery-item if your cards use another class) */
+.gallery-item {
+  cursor: pointer;
+}
+
+/* ---- View Image button (always visible call-to-action) ---- */
+.lb-view-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #7b2cbf, #00b4d8);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+.lb-view-btn:hover,
+.lb-view-btn:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+  box-shadow: 0 10px 24px rgba(0, 180, 216, 0.4);
+  outline: none;
+}
+.lb-view-btn:focus-visible {
+  box-shadow: 0 0 0 3px #fff, 0 0 0 6px #00b4d8;
+}
+.lb-view-btn:active {
+  transform: translateY(0);
+}
+.lb-view-icon {
+  font-size: 0.9rem;
+}
+
+/* ---- Lightbox overlay ---- */
+.lb {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 80px;
+  background: rgba(5, 8, 18, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* fade in AND out */
+}
+.lb.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lb-figure {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.94);
+  transition: transform 0.3s ease;            /* scale in AND out */
+}
+.lb.open .lb-figure {
+  transform: scale(1);
+}
+
+.lb-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 180px);
+  max-height: calc(100dvh - 180px);
+  object-fit: contain;                         /* contained, never cropped */
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  transition: opacity 0.2s ease;
+}
+.lb-img.is-loading {
+  opacity: 0;
+}
+
+.lb-caption {
+  margin-top: 16px;
+  text-align: center;
+  color: #e8ecf7;
+  font-size: 1rem;
+  line-height: 1.4;
+  max-width: 90vw;
+}
+.lb-caption:empty {
+  display: none;
+}
+.lb-caption .lb-cat {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #00b4d8;
+}
+
+.lb-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(24, 36, 69, 0.85);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.lb-btn:hover,
+.lb-btn:focus-visible {
+  background: #7b2cbf;
+  outline: none;
+}
+.lb-btn:focus-visible {
+  box-shadow: 0 0 0 3px #00b4d8;
+}
+.lb-close { top: 16px; right: 16px; }
+.lb-prev  { left: 16px;  top: 50%; transform: translateY(-50%); }
+.lb-next  { right: 16px; top: 50%; transform: translateY(-50%); }
+
+body.lb-open {
+  overflow: hidden;
+}
+
+/* ---- Tablet / mobile ---- */
+@media (max-width: 768px) {
+  .lb {
+    padding: 64px 12px 84px;
+  }
+  .lb-img {
+    max-height: calc(100vh - 220px);
+    max-height: calc(100dvh - 220px);
+  }
+  .lb-prev,
+  .lb-next {
+    top: auto;
+    bottom: 16px;
+    transform: none;
+  }
+  .lb-prev { left: 16px; }
+  .lb-next { right: 16px; }
+  .lb-view-btn {
+    right: 8px;
+    bottom: 8px;
+    padding: 8px 13px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lb,
+  .lb-figure,
+  .lb-img,
+  .lb-view-btn {
+    transition: none;
+  }
+}
+.item .view-btn {
+  display: block;
+  margin: 10px auto 12px;
+  padding: 8px 18px;
+  border: none;
+  border-radius: 999px;
+  background: #0c0015;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.item .view-btn:hover { background: #0f0318; }
+.item { cursor: pointer; }
